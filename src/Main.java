@@ -12,6 +12,7 @@ public class Main {
     public static final String GET_EMAIL      = "GE";
     public static final String SET_PHONE      = "SP";
     public static final String SET_EMAIL      = "SE";
+    public static final String EQUAL_PHONE    = "EP";
     public static final String LIST_CONTACTS  = "LC";
     public static final String QUIT           = "Q";
 
@@ -53,6 +54,8 @@ public class Main {
                 case LIST_CONTACTS:
                     listAllContacts(cBook);
                     break;
+                case EQUAL_PHONE:
+                    checkEqualPhones(cBook);
                 default:
                     System.out.println(COMMAND_ERROR);
             }
@@ -147,4 +150,11 @@ public class Main {
         }
         else System.out.println(BOOK_EMPTY);
     }
+    private static void checkEqualPhones(ContactBook cBook) {
+    if (cBook.checkDoubleContacts()) {
+      System.out.println(CONTACTS_SHARE_NUMBERS);
+    } else {
+      System.out.println(CONTACTS_HAVE_DIFFERENT_NUMBERS);
+    }
+  }
 }
